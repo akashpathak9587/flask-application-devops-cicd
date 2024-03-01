@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css' />
+    <title>Recipe Result:</title>
+</head>
+
+<body>
+    <h1 class="text-center">Recipe Results</h1>
+
+    <div class="container">
+        {% if matching_recipes %}
+        <ul class="list-unstyled">
+            {% for recipe in matching_recipes %}
+            <li>
+                <h4>{{ recipe.name }}</h4>
+                <p><strong>Recipe URL:</strong> <a href="{{ recipe.url }}">{{ recipe.url }}</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No matching recipes found.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
